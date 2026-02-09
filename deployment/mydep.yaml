@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mydep
+  namespace: default
+  annotations:
+    kubernetes.io/change-cause: "updating version of httpd to latest"
+spec:
+ replicas: 4
+ selector:
+  matchLabels:
+   app: web
+ template:
+  metadata:
+    labels:
+      app: web
+  spec:
+    containers:
+     - name: container1
+       image: httpd:latest
+       ports:
+        - containerPort: 80
