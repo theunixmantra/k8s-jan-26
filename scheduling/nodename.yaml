@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: mypod
+spec:
+  containers:
+   - name: c1
+     image: httpd:latest
+  nodeName: worker1.skynet.com
