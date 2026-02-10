@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: monitoringagent
+  namespace: default
+spec:
+ selector:
+  matchLabels:
+   app: web
+ template:
+  metadata:
+    labels:
+      app: web
+  spec:
+    containers:
+     - name: container1
+       image: httpd:latest
+       ports:
+        - containerPort: 80
