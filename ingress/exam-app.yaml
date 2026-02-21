@@ -1,0 +1,18 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: exam-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+     app: exam
+  template:
+    metadata:
+      labels:
+        app: exam
+    spec:
+      containers:
+        - name: httpd
+          image: httpd:latest
+    
