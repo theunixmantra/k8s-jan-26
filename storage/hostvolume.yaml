@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: Pod
+metadata:
+ name: mypod
+spec:
+  nodeName: controlplane
+  containers:
+    - name: testcontainer
+      image: busybox:latest
+      command: ["sh","-c","echo 'hello using hostpath storage volume' > /opt/msg.txt; sleep 300"]
+      volumeMounts:
+        - name: hoststorage
+          mountPath: /opt
+  volumes:
+   - name: hoststorage
+     hostPath:
+       path: /tmp/data
+       type: DirectoryOrCreate
