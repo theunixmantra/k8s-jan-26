@@ -1,0 +1,6 @@
+apiVersion: v2
+name: simple-chart
+description: A simple nginx helm chart
+version: 0.1.0
+appVersion: "1.25"
+type: application
