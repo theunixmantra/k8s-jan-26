@@ -1,0 +1,50 @@
+Check Version of helm and kubectl  
+# helm version 
+# kubectl version --short
+--------------------------------------------------------------
+Create a New Helm Chart 
+# helm create my-nginx-app 
+This generates: 
+my-nginx-app/ 
+Chart.yaml 
+values.yaml 
+charts/ 
+templates/ 
+deployment.yaml 
+service.yaml 
+ingress.yaml 
+_helpers.tpl 
+tests/ 
+-------------------------------------------------------------
+Clean Up Default Files 
+Remove unnecessary files to keep it simple: 
+# cd my-nginx-app  
+# rm -rf templates/*
+--------------------------------------------------------
+Update templates/deployment.yaml 
+Update templates/service.yaml 
+-------------------------------------------------------- 
+Lint the chart 
+# helm lint . 
+--------------------------------------------------------
+Render templates locally
+# helm template myrelease .
+--------------------------------------------------------
+Install the Chart 
+# helm install myrelease . 
+--------------------------------------------------------
+Verify: 
+# helm list 
+# kubectl get pods 
+# kubectl get svc 
+--------------------------------------------------------
+Upgrade 
+Change replicas in values.yaml: 
+replicaCount: 3 
+Then: 
+# helm upgrade myrelease . 
+Check: 
+# kubectl get pods 
+--------------------------------------------------------
+Uninstall 
+# helm uninstall myrelease 
